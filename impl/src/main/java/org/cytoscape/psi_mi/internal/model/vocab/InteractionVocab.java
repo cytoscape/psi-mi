@@ -84,5 +84,5 @@ public class InteractionVocab extends CommonVocab {
 	/**
 	 * Interaction Type
 	 */
-	public static final String INTERACTION_TYPE = "interaction";
+	public static final String INTERACTION_TYPE = "interacts with";
 }
