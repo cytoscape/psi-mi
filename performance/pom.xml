@@ -15,7 +15,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>psi-mi-performance</artifactId>
-	<name>Cytoscape PSI-MI Performance (${project.artifactId})</name>
+	<name>PSI-MI Reader Performance Test</name>
 
 	<packaging>jar</packaging>
 

@@ -14,7 +14,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>psi-mi</artifactId>
-	<name>Cytoscape PSI-MI (${project.artifactId})</name>
+	<name>PSI-MI Reader</name>
 	<packaging>bundle</packaging>
 
 	<build>
