@@ -117,6 +117,30 @@ public class PsiMiTabReaderTest {
 		assertEquals(94, network.getEdgeCount());
 	}
 
+	/**
+	 * Test case for MITAB files with single primary ID in column 1 and 2.
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	public void testPsiMiTabReaderSingleId() throws Exception {
+		final File file = new File(
+				"src/test/resources/testData/biogrid_ecoli_single_id.mitab");
+		final CyNetworkReader reader = createReader(file);
+
+		reader.run(taskMonitor);
+		CyNetwork[] networks = reader.getNetworks();
+
+		assertNotNull(networks);
+		assertEquals(1, networks.length);
+
+		final CyNetwork network = networks[0];
+		assertNotNull(network);
+
+		assertEquals(138, network.getNodeCount());
+		assertEquals(128, network.getEdgeCount());
+	}
+
 	
 	private CyNetworkReader createReader(File file) throws IOException {
 		final InputStream is = new FileInputStream(file);

@@ -32,8 +32,8 @@ import java.util.ArrayList;
 // can be further separated by ':'
 // These are the columns
 // 
-// 0   srcDB:sourceRawId|srcDB:srcAlias  
-// 1   tgtDB:targetRawId|tgtDB:tgtAlias  
+// 0   srcDB:sourceRawId|srcDB:srcAlias !Warning! 2nd ID is not required. 
+// 1   tgtDB:targetRawId|tgtDB:tgtAlias !Warning! 2nd ID is not required.
 // 2   srcDB:srcAlias|srcDB:srcAlias  
 // 3   tgtDB:tgtAlias|tgtDB:tgtAlias
 // 4   srcDB:srcAlias|srcDB:srcAlias  
@@ -139,16 +139,26 @@ public class MITABLine25 {
 	public void readLine(final String line) {
 		init();
 
+		// Extract 1st and 2nd column for testing 
+		// TODO: review this class and make this more robust.
+		final int firstDelimiterIdx = line.indexOf(TAB);
+		final int secondDelimiterIdx = line.indexOf(TAB, firstDelimiterIdx+1);
+		final String primarySourceId = line.substring(0, firstDelimiterIdx);
+		final String primaryTargetId = line.substring(firstDelimiterIdx, secondDelimiterIdx);
+		
 		// column 0
 		// get first source DB
 		srcDBs.add(nextString(line));
 
 		// get sourceRawID
-		sourceRawID = nextString(line); 
+		sourceRawID = nextString(line);
 		srcAliases.add(sourceRawID);
 
 		// get any additional source aliases from col 0
-		addNextPairs("additional src aliases", srcDBs, srcAliases, line );
+		if(primarySourceId.indexOf(PIPE) != -1) {
+			// Do this only when multiple IDs are available.
+			addNextPairs("additional src aliases", srcDBs, srcAliases, line );
+		}
 
 		// column 1
 		// get first target db
@@ -159,7 +169,10 @@ public class MITABLine25 {
 		tgtAliases.add(targetRawID);
 
 		// get any additional target aliases from col 1
-		addNextPairs("additional tgt aliases", tgtDBs, tgtAliases, line);
+		if(primaryTargetId.indexOf(PIPE) != -1) {
+			// Do this only when multiple IDs are available.
+			addNextPairs("additional tgt aliases", tgtDBs, tgtAliases, line);
+		}
 
 		// column 2
 		// get any additional source aliases
@@ -275,6 +288,7 @@ public class MITABLine25 {
 	}
 
 	private void addNextPairs(String desc, List<String> dbs, List<String> values, String line) {
+		// Test 
 		do {
 			String db = nextString(line);
 			//System.out.println("      next db string: '" + db + "'");

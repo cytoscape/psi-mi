@@ -121,6 +121,7 @@ public class PsiMiTabParser {
 
 	private void processFull(final CySubNetwork network, final MITABLine25 mline, final String line) {
 		mline.readLine(line);
+		
 		final String primaryKeyName = mline.srcDBs.get(0);
 		
 		if (network.getDefaultNodeTable().getColumn(primaryKeyName) == null)
@@ -128,7 +129,7 @@ public class PsiMiTabParser {
 		
 		final String sourceRawID = mline.sourceRawID;
 		final String targetRawID = mline.targetRawID;
-
+		
 		final CyRootNetwork rootNetwork = network.getRootNetwork();
 		final CyNode source;
 		
