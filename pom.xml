@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<properties>
-		<cytoscape.api.version>3.3.0</cytoscape.api.version>
+		<cytoscape.api.version>3.4.0-SNAPSHOT</cytoscape.api.version>
 		<osgi.api.version>4.2.0</osgi.api.version>
 
 		<!-- Maven Plugin Settings -->
@@ -15,7 +15,7 @@
 
 	<groupId>org.cytoscape</groupId>
 	<artifactId>psi-mi-parent</artifactId>
-	<version>3.3.0</version>
+	<version>3.4.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>PSI-MI Reader Parent</name>
 
