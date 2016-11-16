@@ -15,7 +15,7 @@
 
 	<groupId>org.cytoscape</groupId>
 	<artifactId>psi-mi-parent</artifactId>
-	<version>3.3.1-SNAPSHOT</version>
+	<version>3.3.1</version>
 	<packaging>pom</packaging>
 	<name>PSI-MI Reader Parent</name>
 
