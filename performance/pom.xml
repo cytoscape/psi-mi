@@ -5,7 +5,7 @@
 	<parent>
 		<artifactId>psi-mi-parent</artifactId>
 		<groupId>org.cytoscape</groupId>
-		<version>3.3.1-SNAPSHOT</version>
+		<version>3.3.2</version>
 	</parent>
 
 	<properties>
