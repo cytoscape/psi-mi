@@ -42,6 +42,7 @@ import org.slf4j.LoggerFactory;
 
 // Thi sis for 2.5
 public class PsiMiCyFileFilter implements CyFileFilter {
+	
 	private static final String PSI_MI_XML_NAMESPACE = "net:sf:psidev:mi";
 	
 	private static final String PSI_MI_254_KEY1 = "psi.hupo.org/mi";
@@ -77,11 +78,11 @@ public class PsiMiCyFileFilter implements CyFileFilter {
 	
 	@Override
 	public boolean accepts(URI uri, DataCategory category) {
-		if (!category.equals(DataCategory.NETWORK)) {
+		if (!category.equals(DataCategory.NETWORK))
 			return false;
-		}
-		try {
-			return accepts(getInputStream(uri.toURL()), category);
+		
+		try (InputStream is = getInputStream(uri.toURL())) {
+			return accepts(is, category);
 		} catch (IOException e) {
 			Logger logger = LoggerFactory.getLogger(getClass());
 			logger.error("Error while checking header", e);
