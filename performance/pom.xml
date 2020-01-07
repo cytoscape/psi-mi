@@ -39,7 +39,7 @@
 						<id>make-assembly</id> <!-- this is used for inheritance merges -->
 						<phase>package</phase> <!-- append to the packaging phase. -->
 						<goals>
-							<goal>attached</goal> <!-- goals == mojos -->
+							<goal>single</goal> <!-- goals == mojos -->
 						</goals>
 					</execution>
 				</executions>
@@ -47,7 +47,7 @@
 		</plugins>
 	</build>
 
-	<!-- This is where any additional implementation dependencies necessary 
+	<!-- This is where any additional implementation dependencies necessary
 		for running the integration tests should reside, NOT in the top level pom.xml. -->
 	<dependencies>
 		<dependency>
@@ -107,7 +107,7 @@
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
