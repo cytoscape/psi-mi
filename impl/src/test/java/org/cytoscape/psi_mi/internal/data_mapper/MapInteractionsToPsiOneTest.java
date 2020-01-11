@@ -125,7 +125,7 @@ public class MapInteractionsToPsiOneTest {
 
 		//  Verify that XML indentation is turned on.
 		String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-		                  + "<entrySet version=\"1\" level=\"1\" xmlns=\"net:sf:psidev:mi\">\n"
+		                  + "<entrySet level=\"1\" version=\"1\" xmlns=\"net:sf:psidev:mi\">\n"
 		                  + "    <entry>\n" + "        <interactorList>";
 		assertTrue("XML Indentation Test has failed.  ", writer.toString().startsWith(expected));
 	}
