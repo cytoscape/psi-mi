@@ -4,12 +4,13 @@
 	<parent>
 		<groupId>org.cytoscape</groupId>
 		<artifactId>psi-mi-parent</artifactId>
-		<version>3.3.3</version>
+		<version>3.4.0-SNAPSHOT</version>
 	</parent>
 
 	<properties>
 		<bundle.symbolicName>org.cytoscape.psi-mi</bundle.symbolicName>
 		<bundle.namespace>org.cytoscape.psi_mi.internal</bundle.namespace>
+		<maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
 	</properties>
 
 	<modelVersion>4.0.0</modelVersion>
@@ -22,7 +23,7 @@
 			<plugin>
 				<groupId>org.jvnet.jaxb2.maven2</groupId>
 				<artifactId>maven-jaxb2-plugin</artifactId>
-				<version>0.8.1</version>
+				<version>0.14.0</version>
 				<executions>
 					<execution>
 						<id>mi1</id>
@@ -74,6 +75,11 @@
 					</instructions>
 				</configuration>
 			</plugin>
+			<plugin>
+          		<groupId>org.apache.maven.plugins</groupId>
+          		<artifactId>maven-surefire-plugin</artifactId>
+          		<version>${maven-surefire-plugin.version}</version>
+        	</plugin>
 		</plugins>
 	</build>
 </project>
